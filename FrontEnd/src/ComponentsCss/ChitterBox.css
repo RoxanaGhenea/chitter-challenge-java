@@ -1,0 +1,52 @@
+.avatar {
+  border-radius: 50%;
+  width: 35px; 
+  height: 35px;
+  object-fit: cover;
+}
+
+.chitter-box {
+    padding-bottom: 10px;
+    border-bottom: 8px solid rgb(158, 157, 157);
+    padding-right: 10px;
+}
+
+.chitter-box > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.chitter-box-input {
+  padding: 20px;
+  display: flex;
+}
+
+.chitter-box-input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+}
+
+.feed-peep-button {
+  font-weight: 700;
+    background-color: blue;
+    color: white;
+    border-radius: 20px !important;
+    padding: 5px 50px;
+    font-size: 1.2rem !important;
+    margin-left: auto !important;
+}
+
+.feed-peep-button:hover {
+    background-color: #e8f5fe;
+    border-radius: 20px;
+    color: blue;
+    transition: color 100ms ease-out;
+}
+
+.peep-image-share {
+  border: none;
+  padding: 10px;
+
+}

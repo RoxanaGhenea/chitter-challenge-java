@@ -1,0 +1,16 @@
+.sidebar-option {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-option > h5 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.sidebar-option:hover {
+    background-color: #e8f5fe;
+    border-radius: 20px;
+    color: blue;
+    transition: color 100ms ease-out;
+}
