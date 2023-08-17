@@ -1,29 +1,22 @@
-// import FcGoogle from "react-fc-components/FcGoogle";
 import '../ComponentsCss/SignUpInPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faApple } from '@fortawesome/free-brands-svg-icons';
 
 const SignUpInPage = () => {
     return (
         <>
-            <body>
-                <div className="d-flex logo-position">
-                    <div>
-                        <img src="https://admin.itsnicethat.com/images/MEPeS1j8IRTti1OF_E9ajuZSAJw=/243516/width-1440/twitter-x-logo-graphic-design-itsnicethat-01.jpeg" alt="Logo" width="400px" height="400px" />
-                    </div>
-                    <div>
-                        <div className="d-grid gap-2 col-8 mx-auto">
-                            <h1 className="text-white">Happening Now</h1>
-                            <h3 className="text-white">Join Today</h3>
-                            <button className="btn btn-light custom-button" type="button">Sign up with Google</button>
-                            <button className="btn btn-light custom-button" type="button">Sign up with Apple</button>
-                            <p className="text-white">or</p>
-                            <button className="btn btn-light custom-button" type="button">Create Account</button>
-                            <p className="text-white text-extra-small">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
-                            <h5 className="text-white">Already have an account?</h5>
-                            <button className="btn btn-light custom-button" type="button">Sign in</button>
-                        </div>
-                    </div>
-                </div>
-            </body>
+            <div className='d-flex flex-column align-items-start'>
+                <h3 className="text-black mb-3">Happening Now</h3>
+                <h4 className="text-black mb-3">Join Today</h4>
+                <button className="btn btn-light custom-button mb-2" type="button"><FontAwesomeIcon icon={faGoogle} className="fs-6 me-2" />Sign up with Google</button>
+                <button className="btn btn-light custom-button mb-3" type="button"><FontAwesomeIcon icon={faApple} className="fs-4 me-2"  />Sign up with Apple</button>
+                <p className="text-black mb-3 h5"><b>or</b></p>
+                <button className="btn btn-light custom-button mb-2" type="button">Create Account</button>
+                <p className="text-black text-extra-small mb-3">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
+                <h5 className="text-black mb-2">Already have an account?</h5>
+                <button className="btn btn-light custom-button mb-3" type="button">Sign in</button>
+            </div>
         </>
     );
 }

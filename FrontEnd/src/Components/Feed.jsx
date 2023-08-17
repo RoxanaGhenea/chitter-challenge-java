@@ -5,10 +5,9 @@ import Peep from "./Peep.jsx";
 
 const Feed = () => {
   return (
-    <> 
-      <div className="section-separator">
+    <div className="col-9" > 
+      <div className="feed-positioning">
         <div className="feed">
-          <h2>Home</h2>
         </div>
         <ChitterBox />
         <Peep />
@@ -22,7 +21,7 @@ const Feed = () => {
         <Peep />
         <Peep />
       </div>
-    </>
+    </div>
   )
 }
 

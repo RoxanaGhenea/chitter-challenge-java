@@ -5,8 +5,8 @@ function SidebarOptions({text, Icon}) {
   return (
     <>
     <div className="sidebar-option">
-        <Icon className="fs-3 mb-5 me-1"/> 
-        <h5 className='mb-5'>{text}</h5>
+        <Icon className="fs-3 mb-4 me-2"/> 
+        <h5 className="mb-4 icon-text">{text}</h5>
     </div>
 
     </>

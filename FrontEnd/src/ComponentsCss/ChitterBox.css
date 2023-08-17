@@ -1,52 +1,30 @@
+.icon-styling {
+    color: #1DA1F2 !important;
+}
+
 .avatar {
-  border-radius: 50%;
-  width: 35px; 
-  height: 35px;
-  object-fit: cover;
+    border-radius: 9999px;
 }
 
-.chitter-box {
-    padding-bottom: 10px;
-    border-bottom: 8px solid rgb(158, 157, 157);
-    padding-right: 10px;
+.peep-textbox {
+    width: 360px;
+    resize: vertical;
 }
 
-.chitter-box > form {
-  display: flex;
-  flex-direction: column;
+.peep-image-share{
+    width: 360px;
 }
 
-.chitter-box-input {
-  padding: 20px;
-  display: flex;
-}
-
-.chitter-box-input > input {
-  flex: 1;
-  margin-left: 20px;
-  font-size: 20px;
-  border: none;
-}
-
-.feed-peep-button {
-  font-weight: 700;
-    background-color: blue;
-    color: white;
-    border-radius: 20px !important;
-    padding: 5px 50px;
-    font-size: 1.2rem !important;
-    margin-left: auto !important;
-}
-
-.feed-peep-button:hover {
-    background-color: #e8f5fe;
-    border-radius: 20px;
-    color: blue;
+.custom-button-peep:hover {
+    background-color: #AAB8C2 !important;
     transition: color 100ms ease-out;
 }
 
-.peep-image-share {
-  border: none;
-  padding: 10px;
-
-}
+.custom-button-peep {
+    background-color: #1DA1F2 !important;
+    border: none !important;
+    color: black !important;
+    font-weight: 700 !important;
+    border-radius: 25px !important;
+    width: 20%;
+  }

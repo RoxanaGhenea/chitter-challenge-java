@@ -1,16 +1,20 @@
 .sidebar-option {
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-option > h5 {
-    font-weight: 700;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: black;
 }
 
 .sidebar-option:hover {
-    background-color: #e8f5fe;
-    border-radius: 20px;
-    color: blue;
-    transition: color 100ms ease-out;
+    background-color: #ADD8E6;
+    border-radius: 30px;
+    color: #1DA1F2;
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.icon-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  margin-right: 20px;
 }

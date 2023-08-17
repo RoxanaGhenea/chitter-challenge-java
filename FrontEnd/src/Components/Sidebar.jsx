@@ -7,23 +7,24 @@ import { GiLetterBomb } from "react-icons/gi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdTravelExplore } from "react-icons/md";
 import { FiMoreHorizontal } from "react-icons/fi";
+import SignUpInPage from './SignUpInPage';
 
 const Sidebar = () => {
   return (
-    <>
-      <div className="section-separator">
-        <div className="sidebar">
-          <FaTwitter className='peep-styling fs-1 mb-5' />
+    <div className="col-3">
+      <div className="d-flex flex-column padding-sidebar">
+        <div className="elements-gap">
+          <FaTwitter className='peep-logo fs-1 mb-5' />
           <SidebarOptions active Icon={AiFillHome} text="Home" />
           <SidebarOptions Icon={GiLetterBomb} text="Messages" />
           <SidebarOptions Icon={IoIosNotificationsOutline} text="Notifications" />
           <SidebarOptions Icon={MdTravelExplore} text="Explore" />
           <SidebarOptions Icon={FiMoreHorizontal} text="More" />
-          <button className="button-styling" type="button">Peep</button>
         </div>
-      </div> 
-    </>
+        <div><SignUpInPage /></div>
+      </div>
+    </div>
   )
 }
 
-export default Sidebar
+export default Sidebar;

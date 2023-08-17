@@ -1,27 +1,17 @@
-.button-styling {
-    font-weight: 700;
-    background-color: blue;
-    color: white;
-    border-radius: 20px !important;
-    padding: 5px 50px;
-    font-size: 1.2rem !important;
+.peep-logo {
+    color: #1DA1F2 !important;
 }
 
-.button-styling:hover {
-    background-color: #e8f5fe;
-    border-radius: 20px;
-    color: blue;
-    transition: color 100ms ease-out;
+.padding-sidebar {
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 20px;
 }
 
-.peep-styling {
-    color: blue !important;
+.elements-gap {
+    margin-bottom: 100px;
 }
 
-.sidebar {
-    flex: 0.3;
-    min-width: 250px;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+.col-3 {
+  background-color: #ADD8E6;
 }

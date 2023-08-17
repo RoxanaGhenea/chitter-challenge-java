@@ -1,18 +1,17 @@
-body {
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: black;
-  }
-  
-  .d-grid {
-    text-align: center;
-  }
+.custom-button {
+  background-color: #1DA1F2 !important;
+  border: none !important;
+  color: black !important;
+  font-weight: 700 !important;
+  border-radius: 25px !important;
+  width: 80%;
+}
 
-  .text-extra-small {
-    font-size: 12px;
-  }
+.custom-button:hover {
+  background-color: #AAB8C2 !important;
+  transition: color 100ms ease-out;
+}
 
-  .custom-button {
-    border-radius: 20px;
-  }
+.text-styling {
+    color: black;
+}

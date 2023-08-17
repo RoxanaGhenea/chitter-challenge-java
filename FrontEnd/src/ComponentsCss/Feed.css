@@ -1,15 +1,5 @@
- .feed {
-    flex: 0.7;
-    min-width: fit-content;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
- }
-
- .section-separator {
-   border-right: 1px solid rgb(158, 157, 157);
- }
-
- .feed::-webkit-scrollbar {
-    display: none;
- }
+.feed-positioning {
+    margin-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
