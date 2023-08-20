@@ -1,7 +1,7 @@
 import React from 'react';
 import '../ComponentsCss/Peep.css';
 
-const Peep = ({ displayName, text, image, avatar }) => {
+const Peep = ({ displayName, text, image, avatar, date }) => {
     return (
         <>
             <div className="peep d-flex justify-content-center my-3">
@@ -12,7 +12,10 @@ const Peep = ({ displayName, text, image, avatar }) => {
                         </div>
                     </div>
                     <div>
-                        <h3>{ displayName }</h3>
+                        <div className="d-flex">
+                            <h3>{ displayName }</h3>
+                            <p>{ date }</p>
+                        </div>
                         <p>{ text }</p>
                         <img src={image} alt="Your image" />
                     </div>

@@ -11,6 +11,7 @@ const Feed = () => {
         </div>
         <ChitterBox />
         <Peep />
+        {/* <Peep />
         <Peep />
         <Peep />
         <Peep />
@@ -18,8 +19,7 @@ const Feed = () => {
         <Peep />
         <Peep />
         <Peep />
-        <Peep />
-        <Peep />
+        <Peep /> */}
       </div>
     </div>
   )
