@@ -3,12 +3,14 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { config } from "dotenv";
 
-config({ path: `.env.${ process.env.NODE_ENV }` });
+if (process.argv.length > 2) {
+    config({ path: `.env.${ process.argv[2] }` });
+} else {
+    config({ path: `.env` });
+}
 
-import { registerUser } from "./src/routes/registerUser.route.js";
-import { loginUser } from ".src/routes/loginUser.route.js";
-import { createPeep } from ".src/routes/createPeep.route.js";
-import { getPeeps } from "./src/routes/getPeeps.route.js";
+import { peepRouter } from "./src/routes/addPeep.route.js";
+import { userRouter } from "./src/routes/user.route.js";
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -23,16 +25,22 @@ const main = async () => {
 main().catch(err => console.log(err));
 
 app.use(express.json());
+// const corsOptions ={
+//     origin:'*', 
+//     credentials:true,            
+//access-control-allow-credentials:true
+//     optionSuccessStatus:200,
+//  }
 app.use(cors());
-app.use("/register", registerUser);
-app.use("/login", loginUser);
-app.use("/createPeep", createPeep);
-app.use("/getPeeps", getPeeps);
+app.use("/peep", peepRouter);
+app.use("/user", userRouter);
 
 const server = app.listen(port, host, () => {
     const SERVERHOST = server.address().address;
     const SERVERPORT = server.address().port;
-    console.log(`Server is running on <http://$>{SERVERHOST}:${SERVERPORT}`);
+    console.log(`Server is running on http://${SERVERHOST}:${SERVERPORT}`);
 });
+
+
 
 export default server;
