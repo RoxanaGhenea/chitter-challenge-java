@@ -6,9 +6,6 @@ const peepSchema = new mongoose.Schema({
         ref: "UserDetails",
         // required: true
     },
-    avatar: {
-        type: String,
-    },
     date: {
         type: Date,
         default: Date.now,
@@ -16,10 +13,7 @@ const peepSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true,
-    },
-    image: {
-        type: String
-    }    
+    }, 
 })
 
 const PeepDetails = mongoose.model(`PeepDetails`, peepSchema);

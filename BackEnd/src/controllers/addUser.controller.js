@@ -2,13 +2,14 @@ import { addUser, editUser, deleteUser, getAllUsers, getUsersByQuery } from "../
 
 export const addUserController = async (req, res) => {
     try {
-        const { email, password, name, username } = req.body;
+        const { email, password, name, username, avatar } = req.body;
 
         const newUserData = {
             email,
             password,
             name,
             username,
+            avatar,
         };
         const newUser = await addUser(newUserData);
         res.status(200).json(newUser);
@@ -20,7 +21,7 @@ export const addUserController = async (req, res) => {
 
 export const editUserController = async (req, res) => {
     try {
-        const { _id, email, password, name, username } = req.body;
+        const { _id, email, password, name, username, avatar } = req.body;
 
         const editedUserData = {
             _id,
@@ -28,6 +29,7 @@ export const editUserController = async (req, res) => {
             password,
             name,
             username,
+            avatar,
         };
         const editedUser = await editUser(editedUserData);
         res.status(201).json(editedUser);

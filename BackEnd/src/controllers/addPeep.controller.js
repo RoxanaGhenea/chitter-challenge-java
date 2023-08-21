@@ -2,13 +2,11 @@ import { addPeep, editPeep, deletePeep, getAllPeeps } from "../services/peepPage
 
 export const addPeepController = async (req, res) => {
     try {
-        const { avatar, content, image } = req.body;
+        const { content } = req.body;
 
         const newPeepData = {
             user: req.body.user,
-            avatar,
             content,
-            image,
         };
         const newPeep = await addPeep(newPeepData);
         res.status(201).json(newPeep);
@@ -20,14 +18,12 @@ export const addPeepController = async (req, res) => {
 
 export const editPeepController = async (req, res) => {
     try {
-        const { _id, user, avatar, content, image } = req.body;
+        const { _id, user, content } = req.body;
 
         const editedPeepData = {
             _id,
             user,
-            avatar,
             content,
-            image,
         };
         const editedPeep = await editPeep(editedPeepData);
         res.status(201).json(editedPeep);
@@ -53,7 +49,8 @@ export const deletePeepController = async (req, res) => {
 export const getAllPeepController = async (req, res) => {
     try {
         const result = await getAllPeeps();
-        res.status(201).json(result);
+        const sortedResult = result.sort((a, b) => (new Date(a.date) < new Date(b.date)) ? 1 : -1);
+        res.status(201).json(sortedResult);
     } catch (e) {
         console.log(e);
         res.status(500).send(`Error editing peep.`);

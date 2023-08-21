@@ -19,7 +19,11 @@ const UserDetailsSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    avatar: {
+        type: String,
+        default: "",
+    },
 })
 
 const UserDetails = mongoose.model(`UserDetails`, UserDetailsSchema);
