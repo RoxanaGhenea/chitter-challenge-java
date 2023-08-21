@@ -7,6 +7,12 @@ const NavBar = ({user, setUser}) => {
     const navigate = useNavigate();
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const avatarImage = React.useMemo(() => {
+        if (user != null && user.avatar.length > 0) {
+            return user.avatar;
+        }
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt8Ue2ZBqbY1HGhCxwV_G6bh5-E3-ggkXAQ&usqp=CAU";
+    }, [user])
 
     const loggedIn = user != null;
 
@@ -24,7 +30,6 @@ const NavBar = ({user, setUser}) => {
     }, [setPassword]);
 
     const onLogin = React.useCallback(async () => {
-        console.log(email, password);
         const response = await fetch("http://127.0.0.1:3000/user/login", {
             method: "POST",
             headers: {  
@@ -35,9 +40,14 @@ const NavBar = ({user, setUser}) => {
                 password: password,
             }),
         });
-        const user = await response.json();
-        setUser(user);
-    }, [setUser]);
+        if (response.ok) {
+            const user = await response.json();
+            setUser(user);
+            window.confirm("Logged in successfully!");
+        } else {
+            window.alert("Login failed! Please check your credentials!");
+        }
+    }, [setUser, email, password]);
 
     const onLogout = React.useCallback(() => {
         setUser(null);
@@ -49,8 +59,13 @@ const NavBar = ({user, setUser}) => {
         {
             !loggedIn && 
             <div className="credentials">
-                <input className="me-2" type="email" placeholder="Your email" value={email} onChange={onEmailChange}></input>
-                <input type="password" placeholder="Your password" value={password} onChange={onPasswordChange}></input>
+                <div>
+                    <input className="login-input" type="email" placeholder="Your email" value={email} onChange={onEmailChange}></input>
+                </div>
+                <div className="password-input">
+                    <input className="login-input" type="password" placeholder="Your password" value={password} onChange={onPasswordChange}></input>
+                </div>
+                
             </div>
         }
         {
@@ -63,7 +78,11 @@ const NavBar = ({user, setUser}) => {
         {
             loggedIn && 
             <div className="logout-buttons">
-                <button onClick={onLogout} className="logout-button">Log out</button>
+                <img className="avatar-image" src={avatarImage} alt="Your Image" />
+                <div>
+                    <div className="user-name">{user.name}</div>
+                    <button onClick={onLogout} className="logout-button">Log out</button>
+                </div>
             </div>
         }
       </div>

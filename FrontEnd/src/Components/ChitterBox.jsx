@@ -1,73 +1,64 @@
 import React, { useState} from 'react';
 import "../ComponentsCss/ChitterBox.css";
-import { RxAvatar } from "react-icons/rx";
-import { AiOutlineCompass } from "react-icons/ai";
-import { TfiWrite } from "react-icons/tfi";
 
-const ChitterBox = () => {
-const [peepContent, setPeepContent] = useState("");
-const [imageURL, setImageURL] = useState("");
-// const [avatar, setAvatar] = useState("");
+const ChitterBox = ({user}) => {
+  const [peepContent, setPeepContent] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  console.log(user);
 
-const handleContentChange = (event) => {
-  setPeepContent(event.target.value);
-};
+  const isPostDisabled = React.useMemo(() => user == null, [user]);
+  // const [avatar, setAvatar] = useState("");
 
-const handleImageURL = (event) => {
-  setImageURL(event.target.value);
-};
+  const handleContentChange = (event) => {
+    setPeepContent(event.target.value);
+  };
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  try {
-    const userId = null;
-    const avatarUrl = "";
+  const handleImageURL = (event) => {
+    setImageURL(event.target.value);
+  };
 
-    const response = await fetch("http://127.0.0.1:3000/peep/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: userId,
-        avatar: avatarUrl,
-        content: peepContent,
-        image: imageURL,
-      }),
-    });
-    
-    if (response.ok) {
-      setPeepContent("");
-      setImageURL("");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://127.0.0.1:3000/peep/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user: user != null ? user._id : null,
+          content: peepContent,
+        }),
+      });
+      
+      if (response.ok) {
+        setPeepContent("");
+        setImageURL("");
+        window.confirm("Peep posted successfully.");
+      } else {
+        window.alert("Failed to post peep. Please try again.")
+      }
+    } catch (e) {
+        console.error("Error adding peep", error);
     }
-  } catch (e) {
-      console.error("Error adding peep", error);
   }
-}
 
   return (
     <>
       <div className="chitter-box">
-        <div className="d-flex align-items-center border-bottom">
-          <div className="d-flex flex-column align-items-center me-5">
-            <img className="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt8Ue2ZBqbY1HGhCxwV_G6bh5-E3-ggkXAQ&usqp=CAU" alt="Your Image" />
-            <h3>Your Name</h3>
-            <div className='fs-1 icon-styling mb-2'>
-              <RxAvatar className='me-3' />
-              <AiOutlineCompass className='me-3' />
-              <TfiWrite />
-            </div>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="chitter-box-input">
-              <textarea className="peep-textbox" placeholder="Your peep to the peeps.." value={peepContent} onChange={handleContentChange} />
-            </div>
-            <input className="peep-image-share mb-3" placeholder='Optional: Post image URL' type="text" value={imageURL} onChange={handleImageURL} />
-            <button className="custom-button-peep" type="submit">Peep</button>
-          </form>
+        <div>
+            <h4>Share something with your friends!</h4>
         </div>
-        <div className="mt-2">
-            <h2>Latest Peeps ...</h2>
+        <form onSubmit={handleSubmit} className="chitter-box-input">
+          <div className="chitter-box-input">
+            <textarea className="peep-textbox" placeholder="Your peep to the peeps.." value={peepContent} onChange={handleContentChange} />
+          </div>
+          <div className='post-button-wrapper'>
+            <button disabled={isPostDisabled} className="btn custom-button-peep post-button" type="submit">Post</button>
+          </div>
+        </form>
+        <div className='catch-up-text'>
+            <h4>Or catch up with their posts!</h4>
         </div>
       </div>
     </>

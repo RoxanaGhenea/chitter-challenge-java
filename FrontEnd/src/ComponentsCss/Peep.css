@@ -1,5 +1,32 @@
 .avatar-peep {
-    width: 80px;
+    width: 40px;
     height: auto;
+    margin-right: 15px;
     border-radius: 9999px;
+}
+
+.peep-title {
+    display: flex;
+}
+
+.username {
+    margin-bottom: 0;
+}
+
+
+.date-text {
+    font-size: smaller;
+    color: darkslategray;
+}
+
+.content-text {
+    margin-top: 10px;
+    font-size: larger;
+}
+
+.peep {
+    margin-top: 40px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid gray;
 }

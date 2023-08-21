@@ -1,25 +1,33 @@
 import React from 'react';
 import '../ComponentsCss/Peep.css';
 
-const Peep = ({ displayName, text, image, avatar, date }) => {
+const Peep = ({ content, peepImage, date, username }) => {
+    const image = React.useMemo(() => {
+        if (peepImage.length > 0) {
+            return peepImage;
+        }
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt8Ue2ZBqbY1HGhCxwV_G6bh5-E3-ggkXAQ&usqp=CAU";
+    },[peepImage]);
+
+    const dateString = React.useMemo(() => new Date(date).toDateString(), [date]);
+    
+
     return (
         <>
-            <div className="peep d-flex justify-content-center my-3">
-                <div className='peep-body d-flex'>
-                    <div className='peep-header me-2'>
-                        <div className='me-2'>
-                            <img className="avatar-peep" src={ avatar } alt="Your Image" />
-                        </div>
+            <div className="peep">
+                <div className='peep-title'>
+                    <div className='avatar-peep'>
+                        <img className="avatar-peep" src={ image } alt="Your Image" />
                     </div>
                     <div>
-                        <div className="d-flex">
-                            <h3>{ displayName }</h3>
-                            <p>{ date }</p>
+                        <h5 className='username'>{ username }</h5>
+                        <div className='d-flex'>
+                            <div className='date-text'>{ dateString }</div>
                         </div>
-                        <p>{ text }</p>
-                        <img src={image} alt="Your image" />
+                        
                     </div>
                 </div>
+                <div className='content-text'> { content } </div>
             </div>
         </>
     )
