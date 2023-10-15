@@ -1,0 +1,53 @@
+.icon-styling {
+    color: #1DA1F2 !important;
+}
+
+.avatar {
+    border-radius: 9999px;
+}
+
+.chitter-box-input {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.share-text {
+    font-size: medium;
+}
+
+.catch-up-text {
+    margin-top: 30px;
+}
+
+.post-button-wrapper {
+    display: flex;
+    margin-top: 10px;
+}
+
+.post-button {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.peep-textbox {
+    width: 100%;
+    resize: vertical;
+}
+
+.peep-image-share{
+    width: 360px;
+}
+
+.custom-button-peep:hover {
+    background-color: #AAB8C2 !important;
+    transition: color 100ms ease-out;
+}
+
+.custom-button-peep {
+    background-color: #1DA1F2 !important;
+    border: none !important;
+    color: black !important;
+    font-weight: 700 !important;
+    border-radius: 25px !important;
+    width: 20%;
+  }

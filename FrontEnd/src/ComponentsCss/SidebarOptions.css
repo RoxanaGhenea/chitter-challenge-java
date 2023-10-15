@@ -1,0 +1,20 @@
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+
+.sidebar-option:hover {
+    background-color: #ADD8E6;
+    border-radius: 30px;
+    color: #1DA1F2;
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.icon-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  margin-right: 20px;
+}

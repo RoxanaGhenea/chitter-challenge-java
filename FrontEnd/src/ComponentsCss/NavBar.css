@@ -1,0 +1,74 @@
+.nav-bar {
+    background-color: #89cbf4 !important;
+    height: 80px;
+    display: flex;
+}
+
+.credentials {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.login-buttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.logout-buttons {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: 35px;
+}
+
+.signup-button {
+    margin-top: 10px;
+}
+
+.user-name {
+    height: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.logout-button {
+    height: 25px;
+    background-color: #1DA1F2 !important;
+    border: none !important;
+    color: black !important;
+    font-weight: 700 !important;
+    border-radius: 25px !important;
+    padding-left: 21px;
+    padding-right: 21px;
+}
+
+.avatar-image {
+    border-radius: 50%;
+    max-height: 100%;
+    margin-right: 20px;
+}
+
+.logout-button:hover {
+    background-color: #AAB8C2 !important;
+    transition: color 100ms ease-out;
+  }
+
+.twitter-logo {
+    color: #109ef7;
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
+
+.password-input {
+    margin-top: 10px;
+}
+
+.login-input {
+    height: 26px;
+}
