@@ -35,7 +35,7 @@ const SignUp = () => {
 
     const onSubmit = React.useCallback(async () => {
         try {
-            const response = await fetch("http://127.0.0.1:3000/user/add", {
+            const response = await fetch("http://127.0.0.1:3306/user/add", {
                 method: "POST",
                 headers: {  
                     "Content-Type": "application/json",

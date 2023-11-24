@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Sidebar from "./Components/Sidebar.jsx";
+// import Sidebar from "./Components/Sidebar.jsx";
 import Feed from "./Components/Feed.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -16,7 +16,7 @@ function App() {
     React.useEffect(() => {
 
         const getAllUsers = async () => {
-            const response = await fetch("http://127.0.0.1:3000/user/getAll", {
+            const response = await fetch("http://127.0.0.1:3306/user/getAll", {
                 method: "GET",
                 headers: {  
                     "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function App() {
         getAllUsers();
 
         const getAllPeeps = async () => {
-            const response = await fetch("http://127.0.0.1:3000/peep/getAll", {
+            const response = await fetch("http://127.0.0.1:3306/peeps/getAll", {
                 method: "GET",
                 headers: {  
                     "Content-Type": "application/json",
