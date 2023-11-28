@@ -30,7 +30,8 @@ public class UserDetailsService {
                 UserDetails currentUser = optionalUser.get();
                 currentUser.setName(editedUserData.getName());
                 currentUser.setEmail(editedUserData.getEmail());
-                // Set other fields as needed...
+                currentUser.setPassword(editedUserData.getPassword());
+                // If you want to be able to change other fields add here
                 return userDetailsRepository.save(currentUser);
             } else {
                 throw new IllegalArgumentException("User not found");

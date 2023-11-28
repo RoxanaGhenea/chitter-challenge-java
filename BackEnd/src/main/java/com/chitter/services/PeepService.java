@@ -29,13 +29,11 @@ public class PeepService {
             if (optionalUser.isPresent()) {
                 UserDetails currentUser = optionalUser.get();
 
-                // Create a new Peep entity and set its properties
                 Peep newPeep = new Peep();
                 newPeep.setContent(newPeepData.getContent());
-                newPeep.setDate(LocalDateTime.now()); // Current timestamp
-                newPeep.setUser(currentUser); // Set the associated user
+                newPeep.setDate(LocalDateTime.now()); 
+                newPeep.setUser(currentUser); 
 
-                // Save the Peep entity to the database
                 return peepRepository.save(newPeep);
             } else {
                 throw new IllegalArgumentException("User not found");
@@ -51,7 +49,8 @@ public class PeepService {
             if (optionalPeep.isPresent()) {
                 Peep currentPeep = optionalPeep.get();
                 currentPeep.setContent(editedPeepData.getContent());
-                // Set other fields as needed...
+                currentPeep.setDate(LocalDateTime.now());
+                // Set other fields you may think you want to change
                 return peepRepository.save(currentPeep);
             } else {
                 throw new IllegalArgumentException("Peep not found");

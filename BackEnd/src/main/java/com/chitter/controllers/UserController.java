@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class UserController {
 
     private final UserDetailsService userDetailsService;
@@ -19,6 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/add")
+    @CrossOrigin
     public ResponseEntity<UserDetails> addUserController(@RequestBody UserDetails newUserData) {
         try {
             UserDetails newUser = userDetailsService.addUser(newUserData);
@@ -30,6 +32,7 @@ public class UserController {
     }
 
     @PutMapping("/edit")
+    @CrossOrigin
     public ResponseEntity<UserDetails> editUserController(@RequestBody UserDetails editedUserData) {
         try {
             UserDetails editedUser = userDetailsService.editUser(editedUserData);
@@ -41,6 +44,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin
     public ResponseEntity<String> deleteUserController(@PathVariable Long id) {
         try {
             userDetailsService.deleteUser(id);
@@ -52,6 +56,7 @@ public class UserController {
     }
 
     @GetMapping("/getAll")
+    @CrossOrigin
     public ResponseEntity<List<UserDetails>> getAllUsersController() {
         try {
             List<UserDetails> result = userDetailsService.getAllUsers();
@@ -63,6 +68,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin
     public ResponseEntity<UserDetails> loginController(@RequestBody UserDetails loginData) {
         try {
             List<UserDetails> result = userDetailsService.getUsersByQuery(loginData.getEmail(), loginData.getPassword());

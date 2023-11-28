@@ -13,6 +13,7 @@ import jakarta.persistence.TemporalType;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Peep {
@@ -25,6 +26,11 @@ public class Peep {
     @JsonIgnore 
     private UserDetails user;
 
+     @JsonProperty("user_id")
+    public Long getUserId() {
+        return (this.user != null) ? this.user.getId() : null;
+    }
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private LocalDateTime date;
@@ -36,7 +42,7 @@ public class Peep {
         return id;
     }
 
-    public void seId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
