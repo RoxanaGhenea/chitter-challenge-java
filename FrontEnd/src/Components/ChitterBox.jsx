@@ -20,13 +20,15 @@ const ChitterBox = ({user}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:3306/peep/add", {
+      const userId = user != null ? user.id : null;
+      console.log(user);
+      const response = await fetch(`http://localhost:8080/peeps/add/${userId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
-          user: user != null ? user._id : null,
           content: peepContent,
         }),
       });
@@ -39,7 +41,7 @@ const ChitterBox = ({user}) => {
         window.alert("Failed to post peep. Please try again.")
       }
     } catch (e) {
-        console.error("Error adding peep", error);
+        console.error("Error adding peep", e);
     }
   }
 

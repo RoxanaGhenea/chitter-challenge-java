@@ -16,7 +16,7 @@ function App() {
     React.useEffect(() => {
 
         const getAllUsers = async () => {
-            const response = await fetch("http://127.0.0.1:3306/user/getAll", {
+            const response = await fetch("http://localhost:8080/user/getAll", {
                 method: "GET",
                 headers: {  
                     "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function App() {
         getAllUsers();
 
         const getAllPeeps = async () => {
-            const response = await fetch("http://127.0.0.1:3306/peeps/getAll", {
+            const response = await fetch("http://localhost:8080/peeps/getAll", {
                 method: "GET",
                 headers: {  
                     "Content-Type": "application/json",

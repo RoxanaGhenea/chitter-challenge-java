@@ -8,7 +8,7 @@ const NavBar = ({user, setUser}) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const avatarImage = React.useMemo(() => {
-        if (user != null && user.avatar.length > 0) {
+        if (user != null && user.avatar && user.avatar.length > 0) {
             return user.avatar;
         }
         return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt8Ue2ZBqbY1HGhCxwV_G6bh5-E3-ggkXAQ&usqp=CAU";
@@ -30,7 +30,7 @@ const NavBar = ({user, setUser}) => {
     }, [setPassword]);
 
     const onLogin = React.useCallback(async () => {
-        const response = await fetch("http://127.0.0.1:3306/user/login", {
+        const response = await fetch("http://localhost:8080/user/login", {
             method: "POST",
             headers: {  
                 "Content-Type": "application/json",

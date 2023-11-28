@@ -3,7 +3,7 @@ import '../ComponentsCss/Peep.css';
 
 const Peep = ({ content, peepImage, date, username }) => {
     const image = React.useMemo(() => {
-        if (peepImage.length > 0) {
+        if (peepImage && peepImage.length > 0) {
             return peepImage;
         }
         return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt8Ue2ZBqbY1HGhCxwV_G6bh5-E3-ggkXAQ&usqp=CAU";
