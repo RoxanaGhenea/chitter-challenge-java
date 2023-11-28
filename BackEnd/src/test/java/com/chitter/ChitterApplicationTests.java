@@ -45,6 +45,11 @@ class ChitterApplicationTests {
 	@InjectMocks
     private PeepService peepService;
 
+    @Test
+    public void contextLoads() {
+        ChitterApplication.main(new String[]{}); // Run the Spring Boot application
+    }
+
 	// Below tests are for the UserDetailsService.java and UserDetails.java
 	@Test
     public void testAddUser() {
@@ -401,5 +406,4 @@ class ChitterApplicationTests {
 
         assertEquals(expectedException.getMessage(), thrownException.getMessage());
     }
-
 }
